@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <title>mysql | hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content="ؼ����Ψһ���� 2019/10/16 20:28:01/*                Mysql��һ��1.ʲô�����ݿ⣿    ���ݿ��Ϊ��        ��ϵ�����ݿ⣺sqlserver mysql Oracle        �ǹ�ϵ�����ݿ⣺Nosql redis���ݿ⼴���ݲֿ⣬��ߴ洢���й�ϵ�����ݣ����ݿ���ߣ�����װ���ݵģ�������һ��һ�ŵı���ʲô�Ǳ���    �����к�����ɣ�        �г�Ϊ��¼���г�Ϊ�ֶλ������ԡ�    ���磺ѧ������ѧ����ѧ�ţ��༶������������֤�ţ...">
+    
+        <link rel="icon" href="/favicon.ico">
+    
+    
+        
+            <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+        
+            <link rel="stylesheet" href="/css/stage.css">
+        
+            <link rel="stylesheet" href="/css/avatar-bg.css">
+        
+    
+</head>
+</html>
+<body>
+<header id="header">
+    <div class="menu">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="header-main">
+        <h1><a href="/">hexo</a></h1>
+    </div>
+    <div id="nav">
+        <div class="nav-img" id="nav-img"></div>
+        <div class="sentences">
+            How goes the world with you?
+        </div>
+    </div>
+</header>
+
+<div id="content-outer">
+    <div id="content-inner">
+        <div class="clearfix">
+    <article id="post">
+        <h1>mysql</h1>
+        <div class="create">
+            <span>Created</span>
+            
+                <time datetime="2019-10-17T10:52:06.000Z">
+                    2019-10-17
+                </time>
+            
+            
+        </div>
+        <p>ؼ����Ψһ���� 2019/10/16 20:28:01<br>/*                Mysql��һ��<br>1.ʲô�����ݿ⣿<br>    ���ݿ��Ϊ��<br>        ��ϵ�����ݿ⣺sqlserver mysql Oracle<br>        �ǹ�ϵ�����ݿ⣺Nosql redis<br>���ݿ⼴���ݲֿ⣬��ߴ洢���й�ϵ�����ݣ����ݿ���ߣ�<br>����װ���ݵģ�������һ��һ�ŵı���<br>ʲô�Ǳ���<br>    �����к�����ɣ�<br>        �г�Ϊ��¼���г�Ϊ�ֶλ������ԡ�<br>    ���磺ѧ������ѧ����ѧ�ţ��༶������������֤�ţ����䣬<br>        ��ô��Щ�ͳ�Ϊѧ�������ֶΣ�ѧ�������ݾ���һ��һ���ļ�¼��<br>    һ�����ݿ��ж����й�ϵ�ı���ɡ�<br>Mysql���� Mysql������<br>    ��װ��������������</p>
+<p>���Ȱ�װMysql���������ڰ�װMysql�ͻ��ˡ�<br>Mysql�����������ݿ�������Ǵ��ڷ������ϵġ�<br>Mysql�ͻ���:����������Mysql��������������Mysql���������в�����<br>�ͻ�����sqlyog navicat</p>
+<p>�ڶ����֣�SQL���<br>        1.�������<br>            1.�������ݿ�<br>                create database<br>            2.������<br>                create cable������<br>                �ֶ���1 �������� Լ����<br>                �ֶ���1 �������� Լ����<br>                �ֶ���1 ��������<br>                ��<br>        2.�������<br>          insert into ����(�ֶ�1,�ֶ�2,�ֶ�3)<br>        3.��ѯ���<br>        select �ֶ�1,�ֶ�2,�ֶ�3<br>            from����<br>        4.�������<br>        update ���� set…where…</p>
+<pre><code>    �޸ı��Ķ�������
+    Alter table �ɱ��� rename �±���
+    Alter table ���� modify��������������
+    Alter table&lt;����&gt;change������ ������ ��������
+    Alter table ���� drop ����
+
+    ������
+    Alter table ���� add ������ ��������
+    5.ɾ�����
+    ɾ����
+        drop database ������
+    ɾ����
+        drop table ������
+    ɾ��������������
+        delete from ������
+    ɾ������ָ��������
+        delete from ���� where...
+
+Լ��
+1.��������(primary key)
+    ������һ�е�Ψһ��ʶ�����е�������������������
+    �������ظ����ǿ�
+2.�ǿ�Լ��(not null)
+3.ΨһԼ��(unique)
+    ���в������ظ�
+4.Ĭ��ֵ(default)
+5.checkԼ��(check)
+6.���Լ��(foreign key)
+    ������˱��е�һ���ֶΣ���������һ�ű����ֶ����ݣ����ұ����õ��ֶΣ�
+        ������һ�ű���������ô�˱��е��ֶξͳ�Ϊ���ű��������</code></pre><p>*/<br>#������<br>CREATE DATABASE  onlinemalll;<br>#ʹ�õĿ�<br>USE onlinemalll;<br>#������<br>CREATE TABLE goods(<br>    gid INT PRIMARY KEY,#��gid���ñ�������<br>    gnma VARCHAR(100),<br>    gprice FLOAT<br>)<br>#��������  insert into<br>INSERT INTO goods (gid,gnma,gprice) VALUES(1,’������Ů’,11.6);<br>INSERT INTO goods (gid,gnma,gprice) VALUES(2,’С��’,3.5);<br>INSERT INTO goods (gid,gnma,gprice) VALUES(3,’�ٱ�ʺ’,5);<br>#��ѯgoods��<br>SELECT * FROM goods;<br>#ɾ��gid����3������<br>delete from goods where gid=3;<br>#��С�ܵļ۸��Ϊ15Ԫ<br>update goods set gprice=15 where gnma=’С��’;</p>
+<p>CREATE DATABASE  SchoolDB;<br>USE SchoolDB;<br>CREATE TABLE teacher(<br>    tid INT PRIMARY KEY AUTO_INCREMENT, #������ AUTO_INCREMENT<br>    teachername VARCHAR(20) NOT NULL,<br>    hiredate DATE ,<br>    gender VARCHAR(10) DEFAULT ‘��’<br>)<br>INSERT INTO teacher(teachername,hiredate,gender) VALUES(‘����’,’2015-03-07’,’��’);<br>INSERT INTO teacher(teachername,hiredate,gender) VALUES(‘�Ƹ�’,’2016-03-07’,’��’);<br>SELECT * FROM teacher;</p>
+<p>ؼ����Ψһ���� 2019/10/16 20:28:21<br>/*    Mysql�ڶ��ο�<br>���ݿ����ƹ淶<br>  ���ݿ���������ʽ<br>     ��һ��ʽ��<br>       ���е��ֶζ��ǲ��ɷָ����С�ĵ�Ԫ����<br>     �ڶ���ʽ��<br>        ÿ�ű�ֻ������һ���£�ÿ�ű���Ҫ��������<br>     ������ʽ��<br>         �������ֶΣ�Ҫ�����������ֶΣ����仰˵���������ֶ��������ֶ�ֱ����ء�<br>         ����Ʊ�ʱ����������������ʽ�����е�ʱ��Ϊ�����ܣ���������ʽ��<br>      Mysql�������<br>        �����������+ - * /<br>        �߼������: and or !<br>        �Ƚ������: &gt; &lt; &gt;= &lt;= &lt;&gt;(������) !=<br>   �ۺϺ���<br>      count() ������<br>      sun() ��һ�еĺ�<br>      avg()ȥƽ��ֵ<br>      max()�����ֵ<br>      min()����Сֵ<br>  Mysql���ùؼ���<br>    in     ��ѯ��ʲôʲô��ѡ���е����� where name in(‘����’��’����’)<br>        ��name�����������ĵĲ�ѯ����<br>    not in    where name not in(‘����’��’����’)<br>        ��name�������������ĵĲ�ѯ����    </p>
+<pre><code>distinct ȥ��
+
+limit     ��ѯ������ǰ����
+
+between...and...  ��ʲôʲô֮��
+
+as</code></pre><p>*/</p>
+<p>SELECT * FROM goods;<br>INSERT INTO goods (gnma,gprice)<br>    VALUES(‘������Ů’,11.6);<br>INSERT INTO goods (gnma,gprice)<br>    VALUES(‘С��’,3.5);<br>INSERT INTO goods (gnma,gprice)<br>    VALUES(‘�⺣��’,5);<br>#��ѯ����Ʒ�۸����10����Ʒ<br>SELECT * FROM goods WHERE gprice&gt;10;<br>#��ѯ��Ʒ�۸񲻵���10����Ʒ��Ϣ<br>SELECT * FROM goods WHERE gprice&lt;&gt;10;<br>#��ѯ��Ʒ�۸����10����С��50����Ʒ��Ϣ<br>SELECT * FROM goods WHERE gprice&gt;10 AND gprice&lt;50;<br>#��ѯ��Ʒ������<br>SELECT COUNT(<em>) FROM goods;<br>#�ֶ��� as ���ֶ��� ���������������µ�����<br>SELECT COUNT(</em>) AS ‘������’ FROM goods;<br>#��ѯ��Ʒ���ܼ۸�<br>SELECT SUM(gprice) ‘�ܼ۸�’ FROM goods;<br>#��ѯ��Ʒ��ƽ���۸�<br>SELECT AVG(gprice) ‘ƽ���۸�’ FROM goods;<br>#��ѯ��Ʒ����߼۸�<br>SELECT MAX(gprice) ‘��߼۸�’ FROM goods;<br>#��ѯ��Ʒ����ͼ۸�<br>SELECT MIN(gprice) ‘��ͼ۸�’ FROM goods;<br>#��ѯ����Ʒ�����ǵ��� �ֻ�����Ʒ<br>SELECT * FROM goods WHERE gnam IN(‘����’,’��ɡ’);<br>#��ѯ����Ʒ���Ʋ��ǵ��� �ֻ�����Ʒ<br>SELECT * FROM goods WHERE gnam NOT IN(‘����’,’��ɡ’);<br>#����Ʒ�����ظ���ȥ��<br>SELECT DISTINCT gnma FROM goods;<br>#��ѯ������ǰ����<br>SELECT * FROM goods LIMIT 0,2;</p>
+<p>SELECT * FROM goods;<br>INSERT INTO goods (gnma,gprice)<br>    VALUES(‘������Ů’,11.6);<br>INSERT INTO goods (gnma,gprice)<br>    VALUES(‘С��’,3.5);<br>INSERT INTO goods (gnma,gprice)<br>    VALUES(‘�⺣��’,5);<br>#��ѯ����Ʒ�۸����10����Ʒ<br>SELECT * FROM goods WHERE gprice&gt;10;<br>#��ѯ��Ʒ�۸񲻵���10����Ʒ��Ϣ<br>SELECT * FROM goods WHERE gprice&lt;&gt;10;<br>#��ѯ��Ʒ�۸����10����С��50����Ʒ��Ϣ<br>SELECT * FROM goods WHERE gprice&gt;10 AND gprice&lt;50;<br>#��ѯ��Ʒ������<br>SELECT COUNT(<em>) FROM goods;<br>#�ֶ��� as ���ֶ��� ���������������µ�����<br>SELECT COUNT(</em>) AS ‘������’ FROM goods;<br>#��ѯ��Ʒ���ܼ۸�<br>SELECT SUM(gprice) ‘�ܼ۸�’ FROM goods;<br>#��ѯ��Ʒ��ƽ���۸�<br>SELECT AVG(gprice) ‘ƽ���۸�’ FROM goods;<br>#��ѯ��Ʒ����߼۸�<br>SELECT MAX(gprice) ‘��߼۸�’ FROM goods;<br>#��ѯ��Ʒ����ͼ۸�<br>SELECT MIN(gprice) ‘��ͼ۸�’ FROM goods;<br>#��ѯ����Ʒ�����ǵ��� �ֻ�����Ʒ<br>SELECT * FROM goods WHERE gnam IN(‘����’,’��ɡ’);<br>#��ѯ����Ʒ���Ʋ��ǵ��� �ֻ�����Ʒ<br>SELECT * FROM goods WHERE gnam NOT IN(‘����’,’��ɡ’);<br>#����Ʒ�����ظ���ȥ��<br>SELECT DISTINCT gnma FROM goods;<br>#��ѯ������ǰ����<br>SELECT * FROM goods LIMIT 0,2;</p>
+<p>ؼ����Ψһ���� 2019/10/16 20:28:29<br>CREATE DATABASE school;<br>USE school;<br>CREATE TABLE teacher(<br>    id INT PRIMARY KEY,<br>    teachername VARCHAR(100),<br>    hiredate DATE,<br>    gender VARCHAR(10) DEFAULT ‘��’<br>)<br>INSERT INTO teacher(id,teachername,hiredate,gender) VALUES(1,’����’,’2000-01-02’,’��’);<br>INSERT INTO teacher(id,teachername,hiredate,gender) VALUES(2,’����’,’2000-09-02’,’Ů’);<br>SELECT *FROM teacher;<br>CREATE TABLE classinfo(<br>    id INT PRIMARY KEY,<br>    classname VARCHAR(100),<br>    gradeld INT,<br>    beginyear YEAR<br>)<br>INSERT INTO classinfo(id,classname,gradeld,beginyear)VALUES(1,’4��’,3,’2018’);<br>INSERT INTO classinfo(id,classname,gradeld,beginyear)VALUES(2,’2��’,5,’2018’);<br>SELECT *FROM classinfo;<br>CREATE TABLE studentinfo(<br>    id INT PRIMARY KEY,<br>    studentname VARCHAR(100),<br>    gender VARCHAR(10),<br>    age INT,<br>    birthday DATE,<br>    classid INT,<br>    beginyear YEAR,<br>    phone VARCHAR(11),<br>    province VARCHAR(100),<br>    city VARCHAR(100),<br>    email VARCHAR(50)<br>)<br>INSERT INTO studentinfo(id,studentname,gender,age,birthday,classid,beginyear,phone,province,city,email)VALUES(1,’С��’,’��’,18,’2000-02-04’,0368,’2018’,’12345678901’,’����’,’֣��’,‘261566520@.com’);<br>INSERT INTO studentinfo(id,studentname,gender,age,birthday,classid,beginyear,phone,province,city,email)VALUES(2,’С��’,’Ů’,18,’2000-07-09’,0368,’2018’,’12345678901’,’����’,’֣��’,‘269967230@.com’);<br>SELECT *FROM studentinfo;<br>CREATE TABLE SUBJECT(<br>    id INT PRIMARY KEY,<br>    subjectname VARCHAR(12),<br>    teacherid INT<br>)<br>INSERT INTO SUBJECT(id,subjectname,teacherid)VALUES(1,’JAVA’,99);<br>INSERT INTO SUBJECT(id,subjectname,teacherid)VALUES(2,’C����’,97);<br>SELECT *FROM SUBJECT;<br>CREATE TABLE exam(<br>    id INT PRIMARY KEY,<br>    exam INT,<br>    subjectid INT,<br>    studentid VARCHAR(10),<br>    remark TEXT<br>)<br>INSERT INTO exam(id,exam,subjectid,studentid,remark)VALUES(1,97,25,’2018070984’,’��’);<br>INSERT INTO exam(id,exam,subjectid,studentid,remark)VALUES(2,65,12,’2018070984’,’��’);<br>SELECT *FROM exam;<br>CREATE TABLE grade(<br>    id INT PRIMARY KEY,<br>    gradename VARCHAR(10),<br>    major VARCHAR(10)<br>)<br>INSERT INTO grade(id,gradename,major)VALUES(1,’��’,’�ƶ�����’);<br>INSERT INTO grade(id,gradename,major)VALUES(2,’��’,’����Ӫ��’);<br>SELECT *FROM grade;</p>
+<p>ؼ����Ψһ���� 2019/10/16 20:28:39<br>/*<br>  Mysql�����ο�<br>*/<br>CREATE DATABASE schooldb;<br>USE Schooldb;<br>#��ʦ��<br>CREATE TABLE teacher(<br>   tid INT PRIMARY KEY AUTO_INCREMENT,<br>   tnam VARCHAR(20) NOT NULL,<br>   hiredate DATE,<br>   sex VARCHAR(5)<br>)<br>INSERT INTO teacher(tnam,hiredate,sex)<br>VALUES(‘����’,’2017-09-01’,’��’),<br>(‘����’,’2012-07-08’,’��’),<br>(‘����’,’2019-04-11’,’��’);</p>
+<p>#�༶��Ϣ��<br>CREATE TABLE ClassInfo(<br>   cid INT PRIMARY KEY AUTO_INCREMENT,<br>   cnam VARCHAR(20) NOT NULL,<br>   grid INT, #�꼶���<br>   beginyear VARCHAR(20)<br>)<br>INSERT INTO ClassInfo(cnam,grid,beginyear)<br>VALUES (‘����1��’,1,’2018’),<br>(‘�ƶ�1��’,2,’2018’),<br>(‘����1��’,3,’2019’),<br>(‘�ƶ�1��’,4,’2019’);</p>
+<p>#ѧ����Ϣ��<br>CREATE TABLE StudentInfo(<br>   sid INT PRIMARY KEY AUTO_INCREMENT,<br>   snam VARCHAR(20) NOT NULL,<br>   sex VARCHAR(5),<br>   age INT,<br>   birthday DATE,<br>   cid INT,<br>   beginyear VARCHAR(20),<br>   stel VARCHAR(15),<br>   address VARCHAR(100),<br>   email VARCHAR(50)<br>)<br>INSERT INTO StudentInfo(snam,sex,age<br>,birthday,cid,beginyear,stel,address<br>,email) VALUES(‘��һ’,’��’,18,’2001-07-05’<br>,1,’2018’,’18867890987’,<br>‘����ʡ������’,‘159078923@qq.com’),<br>(‘����’,’��’,19,’2000-08-05’<br>,2,’2018’,’18967890987’,<br>‘����ʡ������’,‘156078923@qq.com’),<br>(‘����’,’��’,20,’1999-09-05’<br>,3,’2018’,’18877890987’,<br>‘����ʡ֣����’,‘157078923@qq.com’),<br>(‘����’,’Ů’,17,’2002-06-05’<br>,4,’2019’,’18177890987’,<br>‘����ʡ������’,‘157278923@qq.com’);</p>
+<p>#�γ̱�<br>CREATE TABLE course(<br>   coid INT PRIMARY KEY AUTO_INCREMENT,<br>   cnam VARCHAR(50) NOT NULL,#�γ���<br>   tid INT    #������ʦ���<br>)<br>INSERT INTO course(cnam,tid)<br>VALUES(‘���������’,1),(‘ǰ�˻���’,2)<br>,(‘java����’,3),(‘js����’,3);<br>#�ɼ���<br>CREATE TABLE score(<br>   scid INT PRIMARY KEY AUTO_INCREMENT,<br>   sid INT ,#ѧ��ѧ��+<br>   coid INT, #�γ̱��<br>   score INT,<br>   remark VARCHAR(100) #��ע<br>)<br>INSERT INTO score(sid,coid,score,remark)<br>VALUES(1,1,90,’��’),(1,2,75,’��’),<br>(1,3,59,’��’),(1,4,76,’��’)<br>,(2,1,93,’��’),(2,2,77,’��’),<br>(2,3,66,’��’),(2,4,78,’��’),<br>(3,1,87,’��’),(3,2,55,’��’),<br>(3,3,76,’��’),<br>(4,1,88,’��’),(4,2,66,’��’),<br>(4,3,90,’��’),(4,4,76,’��’);</p>
+<p>#�꼶��<br>CREATE TABLE grade(<br>  gid INT PRIMARY KEY AUTO_INCREMENT,<br>  gnam VARCHAR(50), #�꼶��<br>  major VARCHAR(100) #רҵ<br>)<br>INSERT INTO grade(gnam,major)<br>VALUES(‘�ƶ�’,’����’),(‘19��’,’����’),(‘18��’,’�ƶ�’),(‘19��’,’�ƶ�’);</p>
+<p>#order by  ����<br>#��StudentInfo������С��������<br>#��StudentInfo�����Ӵ�С����<br>SELECT * FROM StudentInfo ORDER BY age desc;<br>#group by<br>#��ĳ�ű�����ĳ���ֶν��з���<br>#��ѯ��ÿ��ѧ����ƽ���ɼ������Ҫ��ʾ���ֶ�Ϊ��ѧ��ѧ�ţ�ƽ���ɼ�<br>select sid,avg(score) ‘ƽ���ɼ�’<br>from score group by sid;<br>#group by…having…ɸѡ����������������<br>#��ѯ��ȫ������ѧ����ƽ���ɼ�<br>select sid,avg(score) ‘avg’ from score group by sid having min(score)&gt;60;<br>#��ѯ�����������������ŵ�ѧ��ѧ��<br>select sid from score group by sid having count(*)&lt;4;<br>#��ѯ��������������ſ�ƽ���ɼ�<br>SELECT coid,score from score WHERE coid=(<br>select coid from course where cnam=’���������’);</p>
+<p>#��ѯ��ÿ�ſε�ƽ���ɼ�<br>#��ѯ������ѧ����ƽ���ɼ�</p>
+
+        <div>
+            
+        </div>
+        <div class="bottom-line"></div>
+        
+    <nav id="article-nav">
+        
+            <a href="/2019/10/20/MySQL-PHP-语法/" id="article-nav-newer" class="article-nav-link-wrap">
+        <span class="article-nav-title">
+            
+                MySQL PHP 语法
+            
+        </span>
+                <strong class="article-nav-caption">&gt;</strong>
+            </a>
+        
+        
+            <a href="/2019/10/13/javaoop知识点总结/" id="article-nav-older" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">&lt;</strong>
+                <span class="article-nav-title">
+                    
+                        javaoop知识点总结
+                </span>
+                
+            </a>
+        
+    </nav>
+
+
+        
+    </article>
+    <div id="toc">
+        
+            <h2>This post does not have a Table of Contents</h2>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+<footer id="footer">
+    <div id="copyright">&copy; Mr Zhang  2019</div>
+    <div id="theme">
+        Powered by <a href="http://hexo.io">Hexo</a>. Theme by <a href="https://github.com/markyong/hexo-theme-stage">Stage</a>
+    </div>
+</footer>
+<script src="/lib/js/waterrippleeffect.min.js"></script>
+<script src="/js/header-bg.main.js"></script>
+
+    <script src="/lib/js/smooth-scroll.min.js"></script>
+    <script src="/js/toc.main.js"></script>
+
+</body>
+</html>
