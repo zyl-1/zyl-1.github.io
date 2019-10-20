@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <title>MySQL 创建数据表 | hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content="创建MySQL数据表需要以下信息：
+表名
+表字段名
+定义每个表字段
+语法
+以下为创建MySQL数据表的SQL通用语法：
+CREATE TABLE table_name (column_name column_type); 
+以下例子中我们将在 W3CSCHOOL 数据库中创建数据表w3cschool_tbl：
+tutorials_tbl(tutorial_id INT NOT NULL AUTO_INCREMENT,tutorial_title VARCHAR(100) NOT NULL,tutorial_author VARCHAR(40) NOT NULL,submission_date DATE, PRIMARY ...">
+    
+        <link rel="icon" href="/favicon.ico">
+    
+    
+        
+            <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+        
+            <link rel="stylesheet" href="/css/stage.css">
+        
+            <link rel="stylesheet" href="/css/avatar-bg.css">
+        
+    
+</head>
+</html>
+<body>
+<header id="header">
+    <div class="menu">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="header-main">
+        <h1><a href="/">hexo</a></h1>
+    </div>
+    <div id="nav">
+        <div class="nav-img" id="nav-img"></div>
+        <div class="sentences">
+            云里写诗，泥里生活，岁月里洒脱。
+        </div>
+    </div>
+</header>
+
+<div id="content-outer">
+    <div id="content-inner">
+        <div class="clearfix">
+    <article id="post">
+        <h1>MySQL 创建数据表</h1>
+        <div class="create">
+            <span>Created</span>
+            
+                <time datetime="2019-10-20T08:06:40.000Z">
+                    2019-10-20
+                </time>
+            
+            
+        </div>
+        <p>创建MySQL数据表需要以下信息：</p>
+<p>表名</p>
+<p>表字段名</p>
+<p>定义每个表字段</p>
+<p>语法</p>
+<p>以下为创建MySQL数据表的SQL通用语法：</p>
+<p>CREATE TABLE table_name (column_name column_type); </p>
+<p>以下例子中我们将在 W3CSCHOOL 数据库中创建数据表w3cschool_tbl：</p>
+<p>tutorials_tbl(<br>tutorial_id INT NOT NULL AUTO_INCREMENT,<br>tutorial_title VARCHAR(100) NOT NULL,<br>tutorial_author VARCHAR(40) NOT NULL,<br>submission_date DATE, PRIMARY KEY ( w3cschool_id ) ); </p>
+<p>实例解析：</p>
+<p>如果你不想字段为?NULL?可以设置字段的属性为?NOT NULL， 在操作数据库时如果输入该字段的数据为NULL?，就会报错。</p>
+<p>AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。</p>
+<p>PRIMARY KEY关键字用于定义列为主键。 您可以使用多列来定义主键，列间以逗号分隔。</p>
+<p>通过命令提示符创建表</p>
+<p>通过 mysql&gt; 命令窗口可以很简单的创建MySQL数据表。你可以使用 SQL 语句?CREATE TABLE?来创建数据表。</p>
+<p>实例</p>
+<p>以下为创建数据表 w3cschool_tbl 实例:</p>
+<p>root@host# mysql -u root -p<br>Enter password:<strong>***</strong><br>mysql&gt; use W3CSCHOOL;<br>Database changed<br>mysql&gt; CREATE TABLE w3cschool_tbl(<br>-&gt; w3cschool_id INT NOT NULL AUTO_INCREMENT,<br>-&gt; w3cschool_title VARCHAR(100) NOT NULL,<br>-&gt; w3cschool_author VARCHAR(40) NOT NULL,<br>-&gt; submission_date DATE,<br>-&gt; PRIMARY KEY ( w3cschool_id )<br>-&gt; );<br>Query OK, 0 rows affected (0.16 sec)<br>mysql&gt; </p>
+<p>注意：MySQL命令终止符为分号 (;) 。</p>
+<p>使用PHP脚本创建数据表</p>
+<p>你可以使用PHP的 mysql_query() 函数来创建已存在数据库的数据表。</p>
+<p>该函数有两个参数，在执行成功时返回 TRUE，否则返回 FALSE。</p>
+<p>语法</p>
+<p>bool mysql_query( sql, connection ); 参数描述sql必需。规定要发送的 SQL 查询。注释：查询字符串不应以分号结束。connection可选。规定 SQL 连接标识符。如果未规定，则使用上一个打开的连接。</p>
+<p>实例</p>
+<p>以下实例使用了PHP脚本来创建数据表：</p>
+<html> 
+<head><meta name="generator" content="Hexo 3.9.0"> 
+<meta charset="utf-8"> 
+<title>创建 MySQL 数据表</title> 
+</head> 
+<body> 
+<?php 
+$dbhost = 'localhost:3036'; 
+$dbuser = 'root'; 
+$dbpass = 'rootpassword'; 
+$conn = mysql_connect($dbhost, $dbuser, $dbpass); 
+if(! $conn ) { 
+die('Could not connect: ' . mysql_error()); 
+} 
+echo 'Connected successfully<br />'; 
+$sql = "CREATE TABLE tutorials_tbl( 
+". "tutorial_id INT NOT NULL AUTO_INCREMENT, 
+". "tutorial_title VARCHAR(100) NOT NULL, 
+". "tutorial_author VARCHAR(40) NOT NULL, 
+". "submission_date DATE, 
+". "PRIMARY KEY ( tutorial_id )); 
+"; mysql_select_db( 'TUTORIALS' ); 
+$retval = mysql_query( $sql, $conn ); 
+if(! $retval )
+ { 
+die('数据表创建失败: ' . mysql_error());
+ } 
+echo "数据表创建成功n"; 
+mysql_close($conn); 
+?>
+</body> 
+</html>
+        <div>
+            
+        </div>
+        <div class="bottom-line"></div>
+        
+    <nav id="article-nav">
+        
+        
+            <a href="/2019/10/20/MySQL-PHP-语法/" id="article-nav-older" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">&lt;</strong>
+                <span class="article-nav-title">
+                    
+                        MySQL PHP 语法
+                </span>
+                
+            </a>
+        
+    </nav>
+
+
+        
+    </article>
+    <div id="toc">
+        
+            <h2>This post does not have a Table of Contents</h2>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+<footer id="footer">
+    <div id="copyright">&copy; Mr Zhang  2019</div>
+    <div id="theme">
+        Powered by <a href="http://hexo.io">Hexo</a>. Theme by <a href="https://github.com/markyong/hexo-theme-stage">Stage</a>
+    </div>
+</footer>
+<script src="/lib/js/waterrippleeffect.min.js"></script>
+<script src="/js/header-bg.main.js"></script>
+
+    <script src="/lib/js/smooth-scroll.min.js"></script>
+    <script src="/js/toc.main.js"></script>
+
+</body>
+</html>
