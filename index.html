@@ -32,7 +32,7 @@
     <div id="nav">
         <div class="nav-img" id="nav-img"></div>
         <div class="sentences">
-            时光荏苒，旦夕之间，略有遗憾，似白驹过隙，蹉跎自悟。
+            云里写诗，泥里生活，岁月里洒脱。
         </div>
     </div>
 </header>
@@ -42,6 +42,48 @@
         <div class="clearfix">
     
     <div id="recent-posts">
+        
+            <div class="post-item">
+                <h1>
+                    <a href="/2019/10/31/JSP内置对象response常见用法/">
+                        JSP内置对象response常见用法
+                    </a>
+                </h1>
+                <div class="create">
+                    <span>Created</span>
+                    
+                        <time datetime="2019-10-31T06:05:48.000Z">
+                            2019-10-31
+                        </time>
+                    
+                    
+                </div>
+                
+                    <p>一、重定向网页</p>
+<p>重定向操作支持将地址重定向到不同的主机上，这一点与转发不同。在客户机浏览器上将会得到跳转的地址，并重新发送请求链接。进行重定向后，request中的属性全部失效，并开始一个新的request对象。</p>
+<p>?</p>
+<p>&lt;%@ page language=”java” import=”java.util.*”<br>    contentType=”text/html; charset=UTF-8” pageEncoding=”UTF-8”%&gt;<br>    &lt;%response.sendRedirect(“deal.jsp”); %&gt;</p>
+<p>在JSP页面中使用该方法时，不要再用JSP脚本代码包括return语句，因为重定向之后的代码已经没有意义。并且还可能产生错误。</p>
+<p>?</p>
+<p>二、处理HTTP文件头</p>
+<p>1、禁用缓存</p>
+<p>默认情况浏览器会对网页进行缓存，可以提高网页显示速度，但是对于一些安全性要求比较高的网站，通常需要禁用缓存。</p>
+<pre><code>&lt;% response.setHeader(&quot;Cache-Control&quot;, &quot;no-store&quot;);
+   response.setDateHeader(&quot;Expires&quot;, 0);%&gt;</code></pre><p>2、自动刷新</p>
+<p>?</p>
+<p>?</p>
+<!-- 每隔10秒自动刷新一次 -->
+<pre><code>&lt;% response.setHeader(&quot;refresh&quot;, &quot;10&quot;);%&gt;</code></pre><p>3、定时跳转到网页</p>
+<p>?</p>
+<p>5秒后自动跳转到指定网页：<br>&lt;% response.setHeader(“refresh”, “5;URL=deal.jsp”);%&gt;</p>
+
+                
+                <div class="readmore">
+                    <a href="/2019/10/31/JSP内置对象response常见用法/">
+                        Read More
+                    </a>
+                </div>
+            </div>
         
             <div class="post-item">
                 <h1>

@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <title>JSP内置对象response常见用法 | hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content>
+    <meta name="description" content="一、重定向网页
+重定向操作支持将地址重定向到不同的主机上，这一点与转发不同。在客户机浏览器上将会得到跳转的地址，并重新发送请求链接。进行重定向后，request中的属性全部失效，并开始一个新的request对象。
+?
+&amp;lt;%@ page language=”java” import=”java.util.*”    contentType=”text/html; charset=UTF-8” pageEncoding=”UTF-8”%&amp;gt;    &amp;lt;%response.sendRedirect(“deal.jsp”); %&amp;gt;
+在JSP页面中使用该方法时，不要再用JSP脚本代码包括return语句，因为重...">
+    
+        <link rel="icon" href="/favicon.ico">
+    
+    
+        
+            <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+        
+            <link rel="stylesheet" href="/css/stage.css">
+        
+            <link rel="stylesheet" href="/css/avatar-bg.css">
+        
+    
+</head>
+</html>
+<body>
+<header id="header">
+    <div class="menu">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="header-main">
+        <h1><a href="/">hexo</a></h1>
+    </div>
+    <div id="nav">
+        <div class="nav-img" id="nav-img"></div>
+        <div class="sentences">
+            云里写诗，泥里生活，岁月里洒脱。
+        </div>
+    </div>
+</header>
+
+<div id="content-outer">
+    <div id="content-inner">
+        <div class="clearfix">
+    <article id="post">
+        <h1>JSP内置对象response常见用法</h1>
+        <div class="create">
+            <span>Created</span>
+            
+                <time datetime="2019-10-31T06:05:48.000Z">
+                    2019-10-31
+                </time>
+            
+            
+        </div>
+        <p>一、重定向网页</p>
+<p>重定向操作支持将地址重定向到不同的主机上，这一点与转发不同。在客户机浏览器上将会得到跳转的地址，并重新发送请求链接。进行重定向后，request中的属性全部失效，并开始一个新的request对象。</p>
+<p>?</p>
+<p>&lt;%@ page language=”java” import=”java.util.*”<br>    contentType=”text/html; charset=UTF-8” pageEncoding=”UTF-8”%&gt;<br>    &lt;%response.sendRedirect(“deal.jsp”); %&gt;</p>
+<p>在JSP页面中使用该方法时，不要再用JSP脚本代码包括return语句，因为重定向之后的代码已经没有意义。并且还可能产生错误。</p>
+<p>?</p>
+<p>二、处理HTTP文件头</p>
+<p>1、禁用缓存</p>
+<p>默认情况浏览器会对网页进行缓存，可以提高网页显示速度，但是对于一些安全性要求比较高的网站，通常需要禁用缓存。</p>
+<pre><code>&lt;% response.setHeader(&quot;Cache-Control&quot;, &quot;no-store&quot;);
+   response.setDateHeader(&quot;Expires&quot;, 0);%&gt;</code></pre><p>2、自动刷新</p>
+<p>?</p>
+<p>?</p>
+<!-- 每隔10秒自动刷新一次 -->
+<pre><code>&lt;% response.setHeader(&quot;refresh&quot;, &quot;10&quot;);%&gt;</code></pre><p>3、定时跳转到网页</p>
+<p>?</p>
+<p>5秒后自动跳转到指定网页：<br>&lt;% response.setHeader(“refresh”, “5;URL=deal.jsp”);%&gt;</p>
+
+        <div>
+            
+        </div>
+        <div class="bottom-line"></div>
+        
+    <nav id="article-nav">
+        
+        
+            <a href="/2019/10/20/MySQL-创建数据表/" id="article-nav-older" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">&lt;</strong>
+                <span class="article-nav-title">
+                    
+                        MySQL 创建数据表
+                </span>
+                
+            </a>
+        
+    </nav>
+
+
+        
+    </article>
+    <div id="toc">
+        
+            <h2>This post does not have a Table of Contents</h2>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+<footer id="footer">
+    <div id="copyright">&copy; Mr Zhang  2019</div>
+    <div id="theme">
+        Powered by <a href="http://hexo.io">Hexo</a>. Theme by <a href="https://github.com/markyong/hexo-theme-stage">Stage</a>
+    </div>
+</footer>
+<script src="/lib/js/waterrippleeffect.min.js"></script>
+<script src="/js/header-bg.main.js"></script>
+
+    <script src="/lib/js/smooth-scroll.min.js"></script>
+    <script src="/js/toc.main.js"></script>
+
+</body>
+</html>
