@@ -10,7 +10,7 @@
     
     
     
-    <title>archive_a | Hexo</title>
+    <title>JSP内置对象response常见用法 | Hexo</title>
     <link href="http://yoursite.com" rel="prefetch" />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -95,7 +95,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -138,19 +138,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">Hexo</a>
         >
-        <span>归档</span>
+        <span>JSP内置对象response常见用法</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2019/11/07/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1response%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">JSP内置对象response常见用法</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-11-07
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -158,47 +166,41 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2019/11/07/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1response%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">JSP内置对象response常见用法</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-11-07
+            </p>
+            <p>
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2019年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2019/11/07/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1response%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/">JSP内置对象response常见用法</a>
-                        <br>
-            
-             
-                        <a href="/2019/11/07/jsp%E4%B8%ADrequest%E7%9A%84%E7%94%A8%E6%B3%95/">jsp中request的用法</a>
-                        <br>
-            
-             
-                        <a href="/2019/11/07/MySQL-PHP-%E8%AF%AD%E6%B3%95/">MySQL-PHP-语法</a>
-                        <br>
-            
-             
-                        <a href="/2019/11/07/MySQL-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8/">MySQL-创建数据表</a>
-                        <br>
-            
-             
-                        <a href="/2019/11/07/javaoop%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">javaoop知识点总结</a>
-                        <br>
-            
-             
-                        <a href="/2019/11/06/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <p>一、重定向网页</p>
+<p>重定向操作支持将地址重定向到不同的主机上，这一点与转发不同。在客户机浏览器上将会得到跳转的地址，并重新发送请求链接。进行重定向后，request中的属性全部失效，并开始一个新的request对象。</p>
+<p>?</p>
+<p>&lt;%@ page language=”java” import=”java.util.*”<br>    contentType=”text/html; charset=UTF-8” pageEncoding=”UTF-8”%&gt;<br>    &lt;%response.sendRedirect(“deal.jsp”); %&gt;</p>
+<p>在JSP页面中使用该方法时，不要再用JSP脚本代码包括return语句，因为重定向之后的代码已经没有意义。并且还可能产生错误。</p>
+<p>?</p>
+<p>二、处理HTTP文件头</p>
+<p>1、禁用缓存</p>
+<p>默认情况浏览器会对网页进行缓存，可以提高网页显示速度，但是对于一些安全性要求比较高的网站，通常需要禁用缓存。</p>
+<pre><code>&lt;% response.setHeader(&quot;Cache-Control&quot;, &quot;no-store&quot;);
+   response.setDateHeader(&quot;Expires&quot;, 0);%&gt;</code></pre><p>2、自动刷新</p>
+<p>?</p>
+<p>?</p>
+<!-- 每隔10秒自动刷新一次 -->
+<pre><code>&lt;% response.setHeader(&quot;refresh&quot;, &quot;10&quot;);%&gt;</code></pre><p>3、定时跳转到网页</p>
+<p>?</p>
+<p>5秒后自动跳转到指定网页：<br>&lt;% response.setHeader(“refresh”, “5;URL=deal.jsp”);%&gt;</p>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -352,17 +354,17 @@
 
                 
                 <li>
-                    <a href="/archives/2019/11/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/11/07/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1response%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2019/11/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/11/07/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1response%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2019/11/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/11/07/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1response%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
